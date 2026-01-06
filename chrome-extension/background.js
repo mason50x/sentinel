@@ -1,5 +1,5 @@
 /**
- * Claude Focus Guard - Background Service Worker
+ * Sentinel - Background Service Worker
  * Handles periodic status checks and coordinates with content scripts
  */
 
@@ -30,7 +30,7 @@ async function checkClaudeStatus() {
 
     return status;
   } catch (error) {
-    console.log('Claude Focus Guard: Server not reachable');
+    console.log('Sentinel: Server not reachable');
     lastKnownStatus = { isActive: false, serverOffline: true };
     return lastKnownStatus;
   }
@@ -85,7 +85,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 // Handle extension install/update
 chrome.runtime.onInstalled.addListener((details) => {
-  console.log('Claude Focus Guard installed/updated:', details.reason);
+  console.log('Sentinel installed/updated:', details.reason);
 
   // Set default settings
   chrome.storage.local.get(['blockingEnabled'], (result) => {

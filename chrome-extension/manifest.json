@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Claude Focus Guard",
+  "name": "Sentinel",
   "version": "1.0.0",
   "description": "Blocks YouTube unless Claude Code is actively working on a task",
   "permissions": [

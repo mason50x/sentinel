@@ -1,5 +1,5 @@
 /**
- * Claude Focus Guard - Popup Script
+ * Sentinel - Popup Script
  */
 
 const SERVER_URL = 'http://localhost:8765';

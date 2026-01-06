@@ -1,4 +1,4 @@
-# Claude Focus Guard
+# Sentinel
 
 A Chrome extension that blocks YouTube unless Claude Code is actively working on a task. Stay focused while Claude does the heavy lifting!
 
@@ -59,7 +59,7 @@ npm start
 You should see:
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║           Claude Focus Guard - Webhook Server                ║
+║           Sentinel - Webhook Server                ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  Server running on http://localhost:8765                     ║
 ║                                                              ║
@@ -204,7 +204,7 @@ launchctl load ~/Library/LaunchAgents/com.claude-focus-guard.plist
 Create `~/.config/systemd/user/claude-focus-guard.service`:
 ```ini
 [Unit]
-Description=Claude Focus Guard Webhook Server
+Description=Sentinel Webhook Server
 
 [Service]
 ExecStart=/usr/bin/node /path/to/webhook-server/server.js

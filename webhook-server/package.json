@@ -1,7 +1,7 @@
 {
   "name": "claude-focus-guard-server",
   "version": "1.0.0",
-  "description": "Webhook server for Claude Focus Guard Chrome extension",
+  "description": "Webhook server for Sentinel Chrome extension",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

@@ -1,5 +1,5 @@
 /**
- * Claude Focus Guard - Content Script
+ * Sentinel - Content Script
  * Runs on YouTube pages to show blocking overlay when Claude is inactive
  */
 
@@ -121,14 +121,14 @@ async function checkStatus() {
     }
   } catch (error) {
     // If server is not running, block by default (fail-safe)
-    console.log('Claude Focus Guard: Server not reachable, blocking YouTube');
+    console.log('Sentinel: Server not reachable, blocking YouTube');
     showOverlay();
 
     // Update overlay message for server error
     if (overlay) {
       const message = overlay.querySelector('.cfg-message');
       if (message) {
-        message.textContent = 'Cannot connect to Claude Focus Guard server.';
+        message.textContent = 'Cannot connect to Sentinel server.';
       }
       const submessage = overlay.querySelector('.cfg-submessage');
       if (submessage) {

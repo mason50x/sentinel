@@ -1,5 +1,5 @@
 /**
- * Claude Focus Guard - Webhook Server
+ * Sentinel - Webhook Server
  *
  * This server receives hook events from Claude Code and tracks whether
  * Claude is actively working on a task. The Chrome extension polls this
@@ -223,7 +223,7 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`
 ╔══════════════════════════════════════════════════════════════╗
-║           Claude Focus Guard - Webhook Server                ║
+║           Sentinel - Webhook Server                ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  Server running on http://localhost:${PORT}                    ║
 ║                                                              ║

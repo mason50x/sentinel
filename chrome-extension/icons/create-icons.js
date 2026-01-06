@@ -1,5 +1,5 @@
 /**
- * Icon Generator for Claude Focus Guard
+ * Icon Generator for Sentinel
  * Run with: node create-icons.js
  *
  * This creates simple colored square icons as placeholders.
