@@ -1,0 +1,110 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"session_start\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"session_end\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"stop\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"task_start\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\",\"tool_use_id\":\"'$TOOL_USE_ID'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"task_start\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\",\"tool_use_id\":\"'$TOOL_USE_ID'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"task_start\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\",\"tool_use_id\":\"'$TOOL_USE_ID'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"task_start\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\",\"tool_use_id\":\"'$TOOL_USE_ID'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"task_end\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\",\"tool_use_id\":\"'$TOOL_USE_ID'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"task_end\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\",\"tool_use_id\":\"'$TOOL_USE_ID'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"task_end\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\",\"tool_use_id\":\"'$TOOL_USE_ID'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -s -X POST http://localhost:8765/hook -H 'Content-Type: application/json' -d '{\"event\":\"task_end\",\"timestamp\":\"'$(date -u +%Y-%m-%dT%H:%M:%SZ)'\",\"tool_use_id\":\"'$TOOL_USE_ID'\"}' > /dev/null 2>&1 &"
+          }
+        ]
+      }
+    ]
+  }
+}

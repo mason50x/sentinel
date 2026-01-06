@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Icons</title>
+</head>
+<body>
+  <h1>Right-click each canvas and "Save image as" to create the PNG icons</h1>
+  <p>Save as: icon16.png, icon48.png, icon128.png</p>
+
+  <h3>16x16</h3>
+  <canvas id="c16" width="16" height="16"></canvas>
+
+  <h3>48x48</h3>
+  <canvas id="c48" width="48" height="48"></canvas>
+
+  <h3>128x128</h3>
+  <canvas id="c128" width="128" height="128"></canvas>
+
+  <script>
+    function drawIcon(ctx, size) {
+      // Background gradient
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#d4a574');
+      gradient.addColorStop(1, '#c49a6c');
+
+      // Rounded rectangle background
+      const radius = size * 0.1875;
+      ctx.beginPath();
+      ctx.roundRect(0, 0, size, size, radius);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+
+      // Shield shape
+      const cx = size / 2;
+      const cy = size / 2;
+      const scale = size / 128;
+
+      ctx.strokeStyle = '#1a1a2e';
+      ctx.lineWidth = 6 * scale;
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      ctx.moveTo(cx, 24 * scale);
+      ctx.lineTo(cx + 32 * scale, 48 * scale);
+      ctx.lineTo(cx + 32 * scale, 80 * scale);
+      ctx.lineTo(cx, 104 * scale);
+      ctx.lineTo(cx - 32 * scale, 80 * scale);
+      ctx.lineTo(cx - 32 * scale, 48 * scale);
+      ctx.closePath();
+      ctx.stroke();
+
+      // Center circle
+      ctx.beginPath();
+      ctx.arc(cx, cy, 16 * scale, 0, Math.PI * 2);
+      ctx.fillStyle = '#1a1a2e';
+      ctx.fill();
+    }
+
+    [16, 48, 128].forEach(size => {
+      const canvas = document.getElementById('c' + size);
+      const ctx = canvas.getContext('2d');
+      drawIcon(ctx, size);
+    });
+  </script>
+</body>
+</html>
